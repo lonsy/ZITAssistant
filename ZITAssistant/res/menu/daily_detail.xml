@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >    
+    <item
+        android:id="@+id/ic_save"
+        android:icon="@drawable/ic_save"
+        android:showAsAction="always"
+        android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/ic_submit"
+        android:icon="@drawable/ic_submit"
+        android:showAsAction="always"
+        android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/ic_edit"
+        android:icon="@drawable/ic_edit"
+        android:showAsAction="always"
+        android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/ic_delete"
+        android:icon="@drawable/ic_delete"
+        android:showAsAction="always"
+        android:title="@string/action_settings"/>
+</menu>
