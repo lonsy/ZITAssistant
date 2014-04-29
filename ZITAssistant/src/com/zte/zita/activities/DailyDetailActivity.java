@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.inputmethod.InputMethodManager;
 
 import com.zte.zita.R;
+import com.zte.zita.fragments.DailyDetailFragment;
 
 public class DailyDetailActivity extends Activity {
 

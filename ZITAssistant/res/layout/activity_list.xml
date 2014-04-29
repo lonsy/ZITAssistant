@@ -7,7 +7,7 @@
     tools:context=".ListActivity" >
     
     <fragment 
-        class="com.zte.zita.activities.DailyListFragment"
+        class="com.zte.zita.fragments.DailyListFragment"
         android:id="@+id/daily_list_fragment" 
         android:layout_height="match_parent"
         android:layout_width="match_parent"/>

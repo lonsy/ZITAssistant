@@ -108,6 +108,23 @@ public class ZDate {
 	}
 	
 	/**
+	 * 是否在今天之前
+	 * @return
+	 */
+	public boolean isBeforeToday()
+	{
+		Date today = new Date();
+		if (today.getTime() > this.date.getTime())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	/**
 	 * 获取月份的第几天
 	 * @return
 	 */

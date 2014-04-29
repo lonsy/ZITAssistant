@@ -45,6 +45,7 @@ public class ZDateTask extends AsyncTask<String, Void, ArrayList<HashMap<String,
 			
 			ZDate day = new ZDate(daily.getDailyDate());
         	boolean isWorkDay = day.isWorkDay();
+        	boolean isBeforeToday = day.isBeforeToday();
         	int dailyStatus = daily.getDailyStatus();
         	
 			HashMap<String, Object> map=new HashMap<String, Object>();
@@ -53,13 +54,13 @@ public class ZDateTask extends AsyncTask<String, Void, ArrayList<HashMap<String,
 			//日期字符串
         	map.put("dayTime", day.getDayString());
         	//日期
-            map.put("day", DayValueEntity.generateNewEntity(isWorkDay, dailyStatus, day.getDayOfMonth()));
+            map.put("day", DayValueEntity.generateNewEntity(isWorkDay, dailyStatus, day.getDayOfMonth(), isBeforeToday));
             //周几
-            map.put("dayWeek", DayValueEntity.generateNewEntity(isWorkDay, dailyStatus, day.getDayForWeekString()));
+            map.put("dayWeek", DayValueEntity.generateNewEntity(isWorkDay, dailyStatus, day.getDayForWeekString(), isBeforeToday));
             //日志内容
             map.put("dailyContent", daily.getDailyContent());
             //状态
-            map.put("dailyStatus", DayValueEntity.generateNewEntity(isWorkDay, dailyStatus, dailyStatus));
+            map.put("dailyStatus", DayValueEntity.generateNewEntity(isWorkDay, dailyStatus, dailyStatus, isBeforeToday));
             
             dayList.add(map);
 		}
