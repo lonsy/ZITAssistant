@@ -5,10 +5,9 @@
     android:background="#EEEEEE"
     android:orientation="vertical" >
 
-    <TextView
+    <com.zte.zita.layout.CalendarCard
+        android:id="@+id/calendarCard"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="1212213" >
-    </TextView>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
