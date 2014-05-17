@@ -1,9 +1,11 @@
 package com.zte.zita.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.inputmethod.InputMethodManager;
@@ -12,6 +14,8 @@ import com.zte.zita.R;
 import com.zte.zita.fragments.DailyDetailFragment;
 
 public class DailyDetailActivity extends Activity {
+	
+	private DailyDetailFragment details;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +26,10 @@ public class DailyDetailActivity extends Activity {
 			finish();
 			return;
 		}*/
+		details = new DailyDetailFragment();
 
 		if (savedInstanceState == null)
 		{
-			DailyDetailFragment details = new DailyDetailFragment();
 			details.setArguments(this.getIntent().getExtras());
 			this.getFragmentManager().beginTransaction()
 				.add(android.R.id.content, details).commit();
@@ -62,6 +66,18 @@ public class DailyDetailActivity extends Activity {
 	@Override
 	public void onPause() {
 		super.onPause();
+	}
+	
+	@Override 
+	public boolean onKeyDown(int keyCode, KeyEvent event) {         
+		//按下键盘上返回按钮 不让其返回登录页面
+		if (keyCode == KeyEvent.KEYCODE_BACK)
+		{
+			this.details.onClick(null);
+			return true;
+		}
+		
+		return super.onKeyDown(keyCode, event);
 	}
 
 }

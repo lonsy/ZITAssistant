@@ -113,23 +113,11 @@
             <Button
                 android:id="@+id/login_b_login"
                 style="?android:attr/borderlessButtonStyle"
-                android:layout_width="100dp"
+                android:layout_width="150dp"
                 android:layout_height="45dp"
                 android:background="@drawable/border_corner_button"
                 android:onClick="login"
                 android:text="@string/login"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/login_b_cancel"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/border_corner_button"
-                android:onClick="cancelLogin"
-                android:text="@string/cancel"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
         </LinearLayout>

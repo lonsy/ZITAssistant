@@ -5,11 +5,10 @@
     android:orientation="vertical"
     android:background="#EEEEEE"
     tools:context=".ListActivity" >
-    
-    <fragment 
-        class="com.zte.zita.fragments.DailyCalendarFragment"
-        android:id="@+id/daily_calendar_fragment" 
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
 
+    <RelativeLayout 
+        android:id="@+id/daily_calendar_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></RelativeLayout>
 </LinearLayout>

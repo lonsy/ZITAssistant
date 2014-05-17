@@ -41,7 +41,7 @@ import com.zte.zita.entity.DailyEntity;
 import com.zte.zita.entity.DayValueEntity;
 import com.zte.zita.utils.PreferenceUtil;
 
-public class DailyDetailFragment extends Fragment {
+public class DailyDetailFragment extends Fragment implements View.OnClickListener {
 	private static final String LOG_TAG = "DailyDetailFragment";
 	
 	/**
@@ -141,32 +141,7 @@ public class DailyDetailFragment extends Fragment {
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						if (isEdit)
-						{
-							//Òþ²Ø¼üÅÌ
-							InputMethodManager imm= (InputMethodManager)getActivity().getSystemService(DailyDetailActivity.INPUT_METHOD_SERVICE);
-							imm.hideSoftInputFromWindow(getActivity()
-									.getCurrentFocus().getWindowToken(),
-									InputMethodManager.HIDE_NOT_ALWAYS);
-							
-							if (contentText.getText().length()!=0)
-							{						
-								ThreeButtonShadowFragment shadow = new ThreeButtonShadowFragment(new String[] {"±£´æ²Ý¸å", "·ÏÆú", "·µ»Ø±à¼­"}, cancelLinstener);
-								FragmentManager fragManager = getFragmentManager();
-						        FragmentTransaction tran = fragManager.beginTransaction();
-						        tran.replace(R.id.daily_editor_shadow, shadow);
-						        tran.addToBackStack(null);
-						        tran.commit();
-							}
-							else
-							{
-								finishActivity();
-							}
-						}
-						else
-						{
-							finishActivity();
-						}
+						this.onClick(v);
 					}
 				});
 		
@@ -591,5 +566,35 @@ public class DailyDetailFragment extends Fragment {
 	public void onPause()
 	{
 		super.onPause();
+	}
+
+	@Override
+	public void onClick(View arg0) {
+		if (isEdit)
+		{
+			//Òþ²Ø¼üÅÌ
+			InputMethodManager imm= (InputMethodManager)getActivity().getSystemService(DailyDetailActivity.INPUT_METHOD_SERVICE);
+			imm.hideSoftInputFromWindow(getActivity()
+					.getCurrentFocus().getWindowToken(),
+					InputMethodManager.HIDE_NOT_ALWAYS);
+			
+			if (contentText.getText().length()!=0)
+			{						
+				ThreeButtonShadowFragment shadow = new ThreeButtonShadowFragment(new String[] {"±£´æ²Ý¸å", "·ÏÆú", "·µ»Ø±à¼­"}, cancelLinstener);
+				FragmentManager fragManager = getFragmentManager();
+		        FragmentTransaction tran = fragManager.beginTransaction();
+		        tran.replace(R.id.daily_editor_shadow, shadow);
+		        tran.addToBackStack(null);
+		        tran.commit();
+			}
+			else
+			{
+				finishActivity();
+			}
+		}
+		else
+		{
+			finishActivity();
+		}
 	}
 }

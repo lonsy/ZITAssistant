@@ -51,6 +51,49 @@ public class ZDate {
 		ZDate date = new ZDate();
 		return getWeekStartDay(date);
 	}
+
+	/**
+	 * 获取当前日期所在月的起始日期
+	 * @return
+	 */
+	public static ZDate getCurrentMonthStartDay()
+	{
+		ZDate date = new ZDate();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date.getDate());
+		cal.set(Calendar.DAY_OF_MONTH, 1);
+		return new ZDate(cal.getTime());
+	}
+	
+	/**
+	 * 月份增加
+	 * @param month
+	 * @return
+	 */
+	public ZDate addMonth(int month)
+	{
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(this.date);
+		cal.add(Calendar.MONTH, month);
+		return new ZDate(cal.getTime());
+	}
+	
+	@Override
+	public ZDate clone()
+	{
+		return new ZDate(this.getDate());
+	}
+	
+	/**
+	 * 获取月份天数
+	 * @return
+	 */
+	public int getMonthDaysCount()
+	{
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(this.date);
+		return cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+	}
 	
 	/**
 	 * 获取指定日期所在周的起始日期

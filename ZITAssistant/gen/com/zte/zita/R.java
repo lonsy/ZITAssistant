@@ -38,15 +38,16 @@ public final class R {
         public static final int ic_edit=0x7f02000e;
         public static final int ic_launcher=0x7f02000f;
         public static final int ic_list=0x7f020010;
-        public static final int ic_logout=0x7f020011;
-        public static final int ic_save=0x7f020012;
-        public static final int ic_submit=0x7f020013;
+        public static final int ic_logo=0x7f020011;
+        public static final int ic_logout=0x7f020012;
+        public static final int ic_save=0x7f020013;
+        public static final int ic_submit=0x7f020014;
     }
     public static final class id {
         public static final int action_settings=0x7f080031;
         public static final int actionbar_menu_back=0x7f080001;
         public static final int actionbar_title=0x7f080000;
-        public static final int calendarCard=0x7f080016;
+        public static final int calendarCard=0x7f080009;
         public static final int cardDay1=0x7f08000d;
         public static final int cardDay2=0x7f08000e;
         public static final int cardDay3=0x7f08000f;
@@ -76,13 +77,13 @@ public final class R {
         public static final int ic_logout=0x7f08002b;
         public static final int ic_save=0x7f08002c;
         public static final int ic_submit=0x7f08002d;
+        public static final int list_calendar_lv=0x7f080016;
         public static final int list_lv=0x7f08001e;
-        public static final int login_b_cancel=0x7f080008;
         public static final int login_b_login=0x7f080007;
         public static final int login_cb_showpd=0x7f080006;
         public static final int login_et_password=0x7f080005;
         public static final int login_et_username=0x7f080004;
-        public static final int login_shadow=0x7f080009;
+        public static final int login_shadow=0x7f080008;
         public static final int shadow_btn_cancel=0x7f080022;
         public static final int shadow_btn_destory=0x7f08001f;
         public static final int shadow_btn_main=0x7f080020;
@@ -100,16 +101,18 @@ public final class R {
         public static final int activity_calendar=0x7f030002;
         public static final int activity_list=0x7f030003;
         public static final int activity_login=0x7f030004;
-        public static final int card_cell=0x7f030005;
-        public static final int card_item_simple=0x7f030006;
-        public static final int card_row=0x7f030007;
-        public static final int card_view=0x7f030008;
-        public static final int fragment_daily_calendar=0x7f030009;
-        public static final int fragment_daily_detail=0x7f03000a;
-        public static final int fragment_daily_list=0x7f03000b;
-        public static final int three_button_shadow=0x7f03000c;
-        public static final int view_daily_as_day_layout=0x7f03000d;
-        public static final int zdialog_layout=0x7f03000e;
+        public static final int activity_splash=0x7f030005;
+        public static final int calendar_view=0x7f030006;
+        public static final int card_cell=0x7f030007;
+        public static final int card_item_simple=0x7f030008;
+        public static final int card_row=0x7f030009;
+        public static final int card_view=0x7f03000a;
+        public static final int fragment_daily_calendar=0x7f03000b;
+        public static final int fragment_daily_detail=0x7f03000c;
+        public static final int fragment_daily_list=0x7f03000d;
+        public static final int three_button_shadow=0x7f03000e;
+        public static final int view_daily_as_day_layout=0x7f03000f;
+        public static final int zdialog_layout=0x7f030010;
     }
     public static final class menu {
         public static final int calendar=0x7f070000;

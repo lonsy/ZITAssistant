@@ -3,8 +3,10 @@ package com.zte.zita.layout;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zte.zita.R;
+import com.zte.zita.utils.ZDate;
 
 public class CalendarCard extends RelativeLayout {
 	
@@ -25,28 +28,41 @@ public class CalendarCard extends RelativeLayout {
 	private Calendar dateDisplay;
 	private ArrayList<CalendarDayLayout> cells = new ArrayList<CalendarDayLayout>();
 	private LinearLayout cardGrid;
+	private Context context;
+	
+	private Fragment fragment;
+	
+	private ArrayList<HashMap<String, Object>> data;
 
 	public CalendarCard(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		init(context);
+		this.context = context;
 	}
 	
 	public CalendarCard(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		init(context);
+		this.context = context;
 	}
 	
 	public CalendarCard(Context context) {
 		super(context);
-		init(context);
+		this.context = context;
 	}
 	
-	private void init(Context ctx) {
+	public void init(ArrayList<HashMap<String, Object>> data, Fragment fragment) {
+		this.data = data;
+		this.fragment = fragment;
+		
 		if (isInEditMode()) return;
-		View layout = LayoutInflater.from(ctx).inflate(R.layout.card_view, null, false);
+		View layout = LayoutInflater.from(this.context).inflate(R.layout.card_view, null, false);
 		
 		if (dateDisplay == null)
-			dateDisplay = Calendar.getInstance();
+		{
+			ZDate d = new ZDate(data.get(0).get("dayTime").toString());
+			Calendar c = Calendar.getInstance();
+			c.setTime(d.getDate());
+			dateDisplay = c;
+		}
 		
 		cardTitle = (TextView)layout.findViewById(R.id.cardTitle);
 		cardGrid = (LinearLayout)layout.findViewById(R.id.cardGrid);
@@ -71,7 +87,7 @@ public class CalendarCard extends RelativeLayout {
 		//cal.add(Calendar.DAY_OF_WEEK, 1);
 		((TextView)layout.findViewById(R.id.cardDay7)).setText("六");
 		
-		LayoutInflater la = LayoutInflater.from(ctx);
+		LayoutInflater la = LayoutInflater.from(this.context);
 		for(int y=0; y<cardGrid.getChildCount(); y++) {
 			LinearLayout row = (LinearLayout)cardGrid.getChildAt(y);
 			for(int x=0; x<row.getChildCount(); x++) {
@@ -146,6 +162,8 @@ public class CalendarCard extends RelativeLayout {
 			cell.setTag(new CardGridItem(i).setEnabled(true).setDate(date));
 			cell.setEnabled(true);
 			cell.setVisibility(View.VISIBLE);
+			cell.initDate(this.data.get(i - 1), this.fragment);
+			cell.setOnClickListener(cell);
 			(mOnItemRender == null ? mOnItemRenderDefault : mOnItemRender).onRender(cell, (CardGridItem)cell.getTag());
 			counter++;
 		}
@@ -158,7 +176,7 @@ public class CalendarCard extends RelativeLayout {
 		cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
 		
 		//计算最后一行的最后一天之后还剩下的空格
-		daySpacing = 6 - cal.get(Calendar.DAY_OF_WEEK);
+		daySpacing = 7 - cal.get(Calendar.DAY_OF_WEEK);
 
 		if (daySpacing > 0) {
 			for(int i=0; i<daySpacing; i++) {

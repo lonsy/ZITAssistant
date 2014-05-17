@@ -15,7 +15,7 @@
     <string name="password_hint">请输入密码</string>
     <string name="text_too_long_error1">不能大于</string>
     <string name="text_too_long_error2">个字符</string>
-    <string name="title_activity_list">ListActivity</string>
+    <string name="title_activity_list">ZIT开发助手</string>
     <string name="title_activity_new_daily">NewDailyActivity</string>
     <string name="title_activity_daily_editor">DailyEditorActivity</string>
     <string name="daily_date_choose_hint">请选择日期</string>
