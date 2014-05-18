@@ -80,7 +80,7 @@ public class DailyDetailFragment extends Fragment implements View.OnClickListene
 	private String userNumber;
 	
 	/**
-	 * 日记状态
+	 * 日志状态
 	 */
 	private int dailyStatus;
 	
@@ -95,7 +95,7 @@ public class DailyDetailFragment extends Fragment implements View.OnClickListene
 	private boolean isEdit = true;
 	
 	/**
-	 * 日记ID
+	 * 日志ID
 	 */
 	private int dailyId = -1;
 	
@@ -130,11 +130,11 @@ public class DailyDetailFragment extends Fragment implements View.OnClickListene
 		bar.setCustomView(R.layout.actionbar_layout_child);
 		if (DayValueEntity.STATUS_DONE==this.dailyStatus || DayValueEntity.STATUS_SAVE==this.dailyStatus)
 		{
-			((TextView)this.getActivity().findViewById(R.id.actionbar_title)).setText("日记详情");
+			((TextView)this.getActivity().findViewById(R.id.actionbar_title)).setText("日志详情");
 		}
 		else
 		{
-			((TextView)this.getActivity().findViewById(R.id.actionbar_title)).setText("新建日记");
+			((TextView)this.getActivity().findViewById(R.id.actionbar_title)).setText("新建日志");
 		}
 		// 返回按钮
 		this.getActivity().findViewById(R.id.actionbar_menu_back).setOnClickListener(
@@ -260,11 +260,11 @@ public class DailyDetailFragment extends Fragment implements View.OnClickListene
             
             tempDate = calendar.getTime();
             
-            //判断该日期是否已有日记 
+            //判断该日期是否已有日志 
             DailyEntity daily = getDaily(tempDate);
             if (daily!=null)
             {
-    			Toast toast = Toast.makeText(getActivity(), "该日期已存在日记", Toast.LENGTH_SHORT);
+    			Toast toast = Toast.makeText(getActivity(), "该日期已存在日志", Toast.LENGTH_SHORT);
     			toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
     			toast.show();
     			
@@ -350,7 +350,7 @@ public class DailyDetailFragment extends Fragment implements View.OnClickListene
 	}
 	
 	/**
-	 * 删除日记
+	 * 删除日志
 	 */
 	private void deleteDialy()
 	{
@@ -432,7 +432,7 @@ public class DailyDetailFragment extends Fragment implements View.OnClickListene
 				saveDialy(true);
 			}        			
 		};
-		ZDialogFragment mdf = new ZDialogFragment("提示", "确定要提交该日记吗", okListener, null);
+		ZDialogFragment mdf = new ZDialogFragment("提示", "确定要提交该日志吗", okListener, null);
 		FragmentTransaction ft = getFragmentManager().beginTransaction();
 		ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 		mdf.show(ft, "df");		
@@ -460,7 +460,7 @@ public class DailyDetailFragment extends Fragment implements View.OnClickListene
         		this.contentText.setEnabled(true);
         		//设置光标的位置在文本末尾
         		this.contentText.setSelection(this.contentText.getText().toString().length());
-    			((TextView)this.getActivity().findViewById(R.id.actionbar_title)).setText("编辑日记");
+    			((TextView)this.getActivity().findViewById(R.id.actionbar_title)).setText("编辑日志");
         		this.getActivity().getWindow().invalidatePanelMenu(Window.FEATURE_OPTIONS_PANEL);  
         		
         		//编辑时隐藏提交，使用右上角的提交按钮
@@ -476,7 +476,7 @@ public class DailyDetailFragment extends Fragment implements View.OnClickListene
 						deleteDialy();
 					}        			
         		};
-        		ZDialogFragment mdf1 = new ZDialogFragment("提示", "确定要删除该日记吗", delListener, null);
+        		ZDialogFragment mdf1 = new ZDialogFragment("提示", "确定要删除该日志吗", delListener, null);
         		FragmentTransaction ft1 = getFragmentManager().beginTransaction();
         		ft1.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         		mdf1.show(ft1, "df1");
@@ -498,7 +498,7 @@ public class DailyDetailFragment extends Fragment implements View.OnClickListene
 		}
 		else if (contentText.getText().length()==0)
 		{
-			Toast toast = Toast.makeText(getActivity(), "请输入日记内容", Toast.LENGTH_SHORT);
+			Toast toast = Toast.makeText(getActivity(), "请输入日志内容", Toast.LENGTH_SHORT);
 			toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
 			toast.show();
 			return false;  
@@ -522,7 +522,7 @@ public class DailyDetailFragment extends Fragment implements View.OnClickListene
 	}
 	
 	/**
-	 * 获取日记，当日期变化时执行
+	 * 获取日志，当日期变化时执行
 	 */
 	private DailyEntity getDaily(Date date)
 	{

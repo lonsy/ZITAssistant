@@ -8,7 +8,7 @@ import android.util.Log;
 import com.zte.zita.entity.DailyEntity;
 
 /**
- * 日记数据操作类
+ * 日志数据操作类
  * @author lonsy
  */
 public class DailyDAO {
@@ -16,7 +16,7 @@ public class DailyDAO {
 	
 	public static void addDaily(SQLiteDatabase database, DailyEntity daily)
 	{		
-		//插入新日记
+		//插入新日志
 		try {  
 			ContentValues cv=new ContentValues(); 
             cv.put("created_by", daily.getCreatedBy());             
@@ -31,11 +31,11 @@ public class DailyDAO {
 	}
 	
 	/**
-	 * 根据创建人和日期获取日记
+	 * 根据创建人和日期获取日志
 	 * @param database
 	 * @param createdBy
 	 * @param dailyDate
-	 * @return 存在则返回日记实体，不存在则返回null
+	 * @return 存在则返回日志实体，不存在则返回null
 	 */
 	public static DailyEntity getDaily(SQLiteDatabase database, String createdBy, String dailyDate)
 	{
@@ -68,7 +68,7 @@ public class DailyDAO {
 	}
 	
 	/**
-	 * 失效日记
+	 * 失效日志
 	 * @param database
 	 * @param dailyId
 	 * @return 
@@ -86,7 +86,7 @@ public class DailyDAO {
 	}
 	
 	/**
-	 * 更新日记
+	 * 更新日志
 	 * @param database
 	 * @param dailyId
 	 * @return 

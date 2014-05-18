@@ -3,13 +3,13 @@ package com.zte.zita.entity;
 import java.util.Date;
 
 /**
- * 日记实体类
+ * 日志实体类
  * @author lonsy
  */
 public class DailyEntity {
 	
 	/**
-	 * 日记ID
+	 * 日志ID
 	 */
 	private int dailyId;
 
@@ -19,17 +19,17 @@ public class DailyEntity {
 	private String createdBy;
 	
 	/**
-	 * 日记状态
+	 * 日志状态
 	 */
 	private int dailyStatus;
 	
 	/**
-	 * 日记日期 2014-04-26
+	 * 日志日期 2014-04-26
 	 */
 	private String dailyDate;
 	
 	/**
-	 * 日记内容
+	 * 日志内容
 	 */
 	private String dailyContent;
 

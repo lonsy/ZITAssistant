@@ -7,7 +7,7 @@ package com.zte.zita.entity;
  */
 public class DayValueEntity {
 	/**
-	 * 没有日记
+	 * 没有日志
 	 */
 	public static final int STATUS_NOT = 0;
 	
@@ -32,7 +32,7 @@ public class DayValueEntity {
 	private boolean isBeforeToday;
 	
 	/**
-	 * 日记状态
+	 * 日志状态
 	 */
 	private int dailyStatus;
 	

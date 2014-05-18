@@ -92,7 +92,7 @@ public class CalendarDayLayout extends RelativeLayout implements OnClickListener
 		DayValueEntity entity = (DayValueEntity)this.date.get("dailyStatus");
 		if (entity.getDailyStatus() == DayValueEntity.STATUS_NOT)
 		{
-			//没有日记，则新建
+			//没有日志，则新建
 			Intent intent = new Intent(v.getContext(), DailyDetailActivity.class);
 			intent.putExtra("currentDateString", this.date.get("dayTime").toString());
 			fragment.startActivityForResult(intent, 0);

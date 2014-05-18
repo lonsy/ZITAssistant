@@ -49,7 +49,7 @@ public class ZDateTask extends AsyncTask<String, Void, ArrayList<HashMap<String,
         	int dailyStatus = daily.getDailyStatus();
         	
 			HashMap<String, Object> map=new HashMap<String, Object>();
-			//日记ID
+			//日志ID
 			map.put("dailyId", daily.getDailyId());
 			//日期字符串
         	map.put("dayTime", day.getDayString());

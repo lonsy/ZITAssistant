@@ -81,7 +81,7 @@ public class DailyListFragment extends Fragment {
 	private String lastDateString = "";
 	
 	/**
-	 * 新建日记返回的日期是否在List范围内
+	 * 新建日志返回的日期是否在List范围内
 	 */
 	private boolean hasDetailInList = false;
 	
@@ -134,11 +134,11 @@ public class DailyListFragment extends Fragment {
 				HashMap<String, Object> map = (HashMap<String, Object>)list.getItemAtPosition(position);
 				Log.v(LOG_TAG, map.get("dayTime").toString());
 				
-				//启动日记显示
+				//启动日志显示
 				DayValueEntity entity = (DayValueEntity)map.get("dailyStatus");
 				if (entity.getDailyStatus() == DayValueEntity.STATUS_NOT)
 				{
-					//没有日记，则新建
+					//没有日志，则新建
 					Intent intent = new Intent(getActivity(), DailyEditorActivity.class);
 					intent.putExtra("currentDateString", map.get("dayTime").toString());
 					startActivity(intent);
@@ -196,7 +196,7 @@ public class DailyListFragment extends Fragment {
 		DayValueEntity entity = (DayValueEntity)map.get("dailyStatus");
 		if (entity.getDailyStatus() == DayValueEntity.STATUS_NOT)
 		{
-			//没有日记，则新建
+			//没有日志，则新建
 			Intent intent = new Intent(getActivity(), DailyDetailActivity.class);
 			intent.putExtra("currentDateString", map.get("dayTime").toString());
 			startActivityForResult(intent, 0);
