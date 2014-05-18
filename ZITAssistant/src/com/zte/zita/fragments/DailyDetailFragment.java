@@ -141,7 +141,7 @@ public class DailyDetailFragment extends Fragment implements View.OnClickListene
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						this.onClick(v);
+						DailyDetailFragment.this.onClick(v);
 					}
 				});
 		
